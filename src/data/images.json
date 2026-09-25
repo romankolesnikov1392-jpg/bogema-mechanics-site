@@ -1,0 +1,199 @@
+{
+  "balancer": {
+    "w": 400,
+    "h": 250,
+    "widths": [
+      400
+    ],
+    "lqip": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoQAAoAA4BaJYwCsADxL5N78AAA/mAE5UmdGGQYAWU19O/VPLdyGppg5XwIAAAA"
+  },
+  "body-damage": {
+    "w": 1067,
+    "h": 800,
+    "widths": [
+      480,
+      800,
+      1067
+    ],
+    "lqip": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoQAAwAA4BaJZQC7ACzKgU8AAD12TxBGl0CKZKYWfDen7Myhe7YusS1RgAAAA=="
+  },
+  "bodyshop-gate": {
+    "w": 1200,
+    "h": 800,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "lqip": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAAAQAgCdASoQAAsAA4BaJYwC7ADOwnW/CuaAAP3jrIIyLjv7Zp+05FhAyPuRhhcq/rkAAA=="
+  },
+  "diagnostics": {
+    "w": 400,
+    "h": 250,
+    "widths": [
+      400
+    ],
+    "lqip": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoQAAoAA4BaJYwCsAD51b15BMAA/sz9wDHktfZRk+JKQF6xbUNua6cwakmXksit0VxKgAAA"
+  },
+  "engine-work": {
+    "w": 1067,
+    "h": 800,
+    "widths": [
+      480,
+      800,
+      1067
+    ],
+    "lqip": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAAAQAgCdASoQAAwAA4BaJYwCdAELzlo3f0sgAP265sQdxf+Uf80ox9A1LEFva1rjPoVi6TCT8dqYQAAA"
+  },
+  "entrance": {
+    "w": 800,
+    "h": 533,
+    "widths": [
+      480,
+      800
+    ],
+    "lqip": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADQAQCdASoQAAsAA4BaJQBdgCBujEbbgAD+PZk9htNoDD3El65knQiogsInxxRB1TfnhJRrGAA="
+  },
+  "exterior": {
+    "w": 1199,
+    "h": 800,
+    "widths": [
+      480,
+      800,
+      1199
+    ],
+    "lqip": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoQAAsAA4BaJYwCdAC29lNQAAD+8jRTUtPdpfBSne8cjpJ9IZOKVMvE7NAAAA=="
+  },
+  "hall": {
+    "w": 1200,
+    "h": 800,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "lqip": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoQAAsAA4BaJYwCdADwFCQFAAD971X9R2ziWEst0l8bCr2pNlEAVJFAAAA="
+  },
+  "interior-covers": {
+    "w": 1067,
+    "h": 800,
+    "widths": [
+      480,
+      800,
+      1067
+    ],
+    "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoQAAwAA4BaJYwCdADzgezWqgAA90KbKAtXp1kfKCC/mvNg3cv2MjMUKJwGjfjdvPayrDqAAAA="
+  },
+  "lift-sandero": {
+    "w": 400,
+    "h": 250,
+    "widths": [
+      400
+    ],
+    "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAABwAQCdASoQAAoAA4BaJYwAAQZPoAD+8EmInt7z4X9Woba0akYuQPRlugL16oLxwOe11l92xGI0FKMIAAA="
+  },
+  "paint-booth": {
+    "w": 1067,
+    "h": 800,
+    "widths": [
+      480,
+      800,
+      1067
+    ],
+    "lqip": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAABwAQCdASoQAAwAA4BaJZQCdABSgAD+1dsiOajhsgHF6ORVm6NWq2fK/GGjBjYA"
+  },
+  "paint-prep": {
+    "w": 400,
+    "h": 250,
+    "widths": [
+      400
+    ],
+    "lqip": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoQAAoAA4BaJZQAAgSzFbUiAAD+v/x/mQH2/5z69n3HCbOlrNnDXERe/28YAA=="
+  },
+  "radiator": {
+    "w": 400,
+    "h": 250,
+    "widths": [
+      400
+    ],
+    "lqip": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADwAQCdASoQAAoAA4BaJYgCw7C3DnsYXsAA/t/tQCPUMLtqC04A9zL1eRNO2wAZLFgbvt0HjtmEAA=="
+  },
+  "sill-repair": {
+    "w": 1067,
+    "h": 800,
+    "widths": [
+      480,
+      800,
+      1067
+    ],
+    "lqip": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQAAwAA4BaJZQCsADGCTQAAP7PZAe5Ad6UQkqRG/JprZ3yzMRCc46MAAA="
+  },
+  "wiring": {
+    "w": 400,
+    "h": 250,
+    "widths": [
+      400
+    ],
+    "lqip": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADwAQCdASoQAAoAA4BaJZQCdADhcnoRwgAA/kAzw0V+7jixaatyyAtHQp2zZf55ubh+M2G3rhMAAA=="
+  },
+  "workshop-lifts": {
+    "w": 2400,
+    "h": 1500,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "lqip": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADwAQCdASoQAAoAA4BaJYwCdAEM/kbgkcAA/sTcki7YHJeOdcYdFfBm2iULBjTbX6QaAA=="
+  },
+  "master-aralushkin": {
+    "w": 130,
+    "h": 170,
+    "widths": [
+      130
+    ],
+    "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoQABUAPu1kqk4ppaQiMAgBMB2JYwC7AB6QprTOvZ/00AD+05VS6WYxfzYfAshYdR69TrhlNjPJR1RsEaWAGoierUjYbItY4Wi/Y2OooBxoGgAA"
+  },
+  "master-chervyakov": {
+    "w": 130,
+    "h": 170,
+    "widths": [
+      130
+    ],
+    "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAACwAwCdASoQABUAPu1mqk2ppaQiMAgBMB2JZQDA3ArCLDTF0oSPSAD+i/7HB+t/AdT9VKudAzupaz9edJsO1RLuMHceroxaiF4xCTsIz2G4XFyAUsMAAA=="
+  },
+  "master-dubravin": {
+    "w": 130,
+    "h": 170,
+    "widths": [
+      130
+    ],
+    "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JZQCw7Bi/sZBysmDgAP6vdOo6wNuYBmE6bIlRJ9nhoaDp6tU/k3g9L2J+M2UgAAA="
+  },
+  "master-pershin": {
+    "w": 130,
+    "h": 170,
+    "widths": [
+      130
+    ],
+    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAwCdASoQABUAPu1iqk2ppaQiMAgBMB2JQBbZAvS9+kRHkNuwfBAA8ckZOg4GLnQR/0QVaZiBVRESff1jUzD8tONQtH93EZR5fAAA"
+  },
+  "master-umnov": {
+    "w": 130,
+    "h": 170,
+    "widths": [
+      130
+    ],
+    "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAwCdASoQABUAPu1yrU+pp6QiMAgBMB2JYgC06CEVADYQzsxg+LMAAPdAvPScIrpysGoVH9lsXVSBL4ojoEoanMm8Q4YhQ8kah3PveOz6fQHrn0AAAA=="
+  },
+  "master-zhabotinsky": {
+    "w": 130,
+    "h": 170,
+    "widths": [
+      130
+    ],
+    "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoQABUAPu1kq04ppaQiMAgBMB2JZQC7ABf6G6qn9LzgIAD+2pEimglRJ7xEy4iRTewmblvsHVdkrjxQ5t5zYIC6HZ2ZznDqqg1MbnmJdeJ8KgAA"
+  }
+}

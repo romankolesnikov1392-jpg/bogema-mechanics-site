@@ -1,0 +1,337 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/sofia-sans-extra-condensed";
+@import "@fontsource-variable/golos-text";
+@import "@fontsource-variable/jetbrains-mono";
+
+/* Сайт только тёмный: токены заданы сразу на :root. */
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Golos Text Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sofia Sans Extra Condensed Variable", "Arial Narrow", sans-serif;
+  --font-heading: var(--font-display);
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Фирменные */
+  --color-spark: var(--spark);
+  --color-spark-soft: var(--spark-soft);
+  --color-graphite: var(--graphite);
+  --color-steel: var(--steel);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ok: var(--ok);
+  --color-dim: var(--dim);
+
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+:root {
+  color-scheme: dark;
+
+  --background: #0c0d0f; /* угольный */
+  --graphite: #121417; /* фон чередующихся секций */
+  --steel: #1a1d21; /* поверхности */
+  --foreground: #eeeae3; /* тёплый белый */
+  --card: #15171a;
+  --card-foreground: #eeeae3;
+  --popover: #15171a;
+  --popover-foreground: #eeeae3;
+  --primary: #ff9233; /* искра / натриевая лампа */
+  --primary-foreground: #160b02;
+  --secondary: #1c1f23;
+  --secondary-foreground: #eeeae3;
+  --muted: #1a1c20;
+  --muted-foreground: #a39e96;
+  --accent: #202328;
+  --accent-foreground: #eeeae3;
+  --destructive: #ff6a5c;
+  --border: rgb(238 234 227 / 0.1);
+  --input: rgb(238 234 227 / 0.18);
+  --ring: #ff9233;
+  --radius: 0px;
+
+  --spark: #ff9233;
+  --spark-soft: rgb(255 146 51 / 0.12);
+  --line: rgb(238 234 227 / 0.08);
+  --line-strong: rgb(238 234 227 / 0.16);
+  --ok: #4ade80;
+  --dim: #8a857d;
+
+  --header-h: 72px;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/60;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent; /* отклик даёт :active у кнопок */
+    touch-action: manipulation;
+    scroll-padding-top: calc(var(--header-h) + 8px);
+    background: var(--background);
+  }
+  /* На телефоне снизу висит панель «Позвонить / Записаться» — не прячем под неё фокус. */
+  @media (max-width: 1023px) {
+    html {
+      scroll-padding-bottom: 96px;
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--spark);
+    color: var(--primary-foreground);
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid var(--spark);
+    outline-offset: 3px;
+  }
+  img {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  /* Цифры одинаковой ширины: цены, телефоны, стаж. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ——— Типографика и раскладка ——— */
+@layer components {
+  .display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    line-height: 0.88;
+    text-wrap: balance;
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.2;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .lead {
+    font-size: clamp(1.0625rem, 0.98rem + 0.35vw, 1.25rem);
+    line-height: 1.55;
+    color: var(--muted-foreground);
+    text-wrap: pretty;
+  }
+  .container-x {
+    width: 100%;
+    max-width: 1360px;
+    margin-inline: auto;
+    padding-inline: max(clamp(16px, 4vw, 48px), env(safe-area-inset-left), env(safe-area-inset-right));
+  }
+  .section-y {
+    padding-block: clamp(88px, 9.5vw, 144px);
+  }
+
+  /* Уголки-«видоискатель» для фото. */
+  .crop-marks {
+    position: relative;
+  }
+  .crop-marks::before,
+  .crop-marks::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .crop-marks::before {
+    top: -6px;
+    left: -6px;
+    border-top: 1px solid var(--spark);
+    border-left: 1px solid var(--spark);
+  }
+  .crop-marks::after {
+    right: -6px;
+    bottom: -6px;
+    border-right: 1px solid var(--spark);
+    border-bottom: 1px solid var(--spark);
+  }
+
+  /* Тонкая сетка-чертёж на фоне. */
+  .blueprint {
+    background-image:
+      linear-gradient(to right, var(--line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+    background-size: 96px 96px;
+    mask-image: radial-gradient(ellipse at 30% 20%, #000 0%, transparent 70%);
+  }
+
+  /* Пунктир-«лидер» между услугой и ценой. */
+  .leader {
+    flex: 1 1 auto;
+    min-width: 24px;
+    border-bottom: 1px dotted var(--line-strong);
+    transform: translateY(-0.35em);
+  }
+}
+
+/* ——— Зерно поверх сайта: убирает «пластиковую» гладкость тёмного фона ——— */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ——— Появление при скролле ———
+   Работает только с JS (класс .js ставится в index.html), без JS контент виден сразу.
+   Вход: fade + подъём на 16px + лёгкий scale, 400ms, сильный ease-out, stagger 60ms. */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0) scale(0.985);
+  transition:
+    opacity 400ms var(--ease-out-strong),
+    transform 400ms var(--ease-out-strong);
+  transition-delay: calc(var(--i, 0) * 60ms);
+}
+.js [data-reveal][data-revealed] {
+  opacity: 1;
+  transform: none;
+}
+/* Фото: рамка на месте, картинка внутри «оседает» из лёгкого увеличения.
+   transform — для появления, scale — для зума при наведении: это разные свойства и не конфликтуют. */
+.js [data-reveal="photo"] {
+  transform: none;
+}
+.photo-img {
+  transition:
+    opacity 300ms ease,
+    transform 400ms var(--ease-out-strong),
+    scale 400ms var(--ease-out-strong),
+    filter 400ms ease;
+}
+.js .photo-img {
+  opacity: 0;
+}
+.js .photo-img[data-loaded] {
+  opacity: 1;
+}
+.js [data-reveal="photo"] .photo-img {
+  transform: scale(1.06);
+}
+.js [data-reveal="photo"][data-revealed] .photo-img {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Меньше движения, но не ноль: оставляем мягкое проявление. */
+  .js [data-reveal] {
+    transform: none !important;
+    transition: opacity 200ms ease !important;
+  }
+  .photo-img {
+    transition: opacity 200ms ease !important;
+    scale: none !important; /* без зума при наведении */
+  }
+  .js [data-reveal="photo"] .photo-img {
+    transform: none !important;
+  }
+}
+
+/* Статус «открыто»: мягкое «дыхание» точки, без мигания. */
+@keyframes status-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  70%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+.status-ring {
+  animation: status-ring 2.4s var(--ease-out-strong) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .status-ring {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* ——— Первый экран: появление на чистом CSS ———
+   Не ждёт JS, поэтому пререндеренный заголовок виден сразу, а анимация идёт один раз при загрузке. */
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+}
+.hero-in {
+  animation: hero-in 400ms var(--ease-out-strong) both;
+  animation-delay: calc(80ms + var(--i, 0) * 70ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  @keyframes hero-in-fade {
+    from {
+      opacity: 0;
+    }
+  }
+  .hero-in {
+    animation-name: hero-in-fade;
+    animation-duration: 200ms;
+  }
+}
+
+/* Слой параллакса: стартует из scale(1.06) ещё в пререндере, чтобы при гидратации не было рывка. */
+.parallax-layer {
+  transform: scale(1.06);
+}
+@media (prefers-reduced-motion: reduce) {
+  .parallax-layer {
+    transform: none !important;
+  }
+}

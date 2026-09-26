@@ -1,5 +1,5 @@
 // Готовит фото для сайта: webp в нескольких ширинах + крошечное размытое превью (LQIP).
-// Исходники: assets/photos, assets/masters. Результат: public/assets/img + src/data/images.json.
+// Исходники: assets/photos, assets/masters (+ full — крупные портреты, works — фото работ мастеров). Результат: public/assets/img + src/data/images.json.
 // Запуск: npm run images
 import fs from "node:fs/promises"
 import path from "node:path"
@@ -14,15 +14,17 @@ const QUALITY = 78
 const sources = [
   { dir: "assets/photos", prefix: "" },
   { dir: "assets/masters", prefix: "master-" },
+  { dir: "assets/masters/full", prefix: "master-", suffix: "-full" },
+  { dir: "assets/masters/works", prefix: "work-" },
 ]
 
 await fs.mkdir(OUT, { recursive: true })
 const manifest = {}
 
-for (const { dir, prefix } of sources) {
+for (const { dir, prefix, suffix = "" } of sources) {
   const files = (await fs.readdir(path.join(ROOT, dir))).filter((f) => /\.(jpe?g|png)$/i.test(f))
   for (const file of files) {
-    const name = prefix + file.replace(/\.[^.]+$/, "")
+    const name = prefix + file.replace(/\.[^.]+$/, "") + suffix
     const input = path.join(ROOT, dir, file)
     const meta = await sharp(input).metadata()
     const widths = WIDTHS.filter((w) => w < meta.width)

@@ -17,10 +17,12 @@ type Errors = Partial<Record<"name" | "phone" | "consent", string>>
 
 export function BookingForm({
   defaultService = "",
+  defaultComment = "",
   onDone,
   className,
 }: {
   defaultService?: string
+  defaultComment?: string
   onDone?: () => void
   className?: string
 }) {
@@ -29,7 +31,7 @@ export function BookingForm({
   const [phone, setPhone] = useState("")
   const [car, setCar] = useState("")
   const [service, setService] = useState<string>(defaultService)
-  const [comment, setComment] = useState("")
+  const [comment, setComment] = useState(defaultComment)
   const [consent, setConsent] = useState(false)
   const [company, setCompany] = useState("") // ловушка для ботов
   const [errors, setErrors] = useState<Errors>({})

@@ -62,8 +62,8 @@ export function About() {
         />
 
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-10">
-          {/* Коллаж из реальных фото цеха */}
-          <div className="relative lg:col-span-7 lg:pr-10">
+          {/* Коллаж из реальных фото: цех крупно, под ним — два кадра в ряд, без пустот */}
+          <div className="lg:col-span-7 lg:pr-10">
             <div className="crop-marks">
               <Photo
                 name="hall"
@@ -72,15 +72,26 @@ export function About() {
                 className="aspect-[4/3]"
               />
             </div>
-            <div className="relative -mt-24 ml-auto w-[58%] border-8 border-background sm:-mt-36 lg:absolute lg:right-0 lg:-bottom-6 lg:mt-0 lg:w-[46%]">
-              <Photo
-                name="interior-covers"
-                alt="Салон автомобиля в защитных чехлах на сиденьях и руле во время ремонта"
-                sizes="(min-width: 1024px) 26vw, 58vw"
-                className="aspect-[4/3]"
-              />
+            <div className="mt-3 grid grid-cols-2 gap-3 lg:mt-4 lg:gap-4">
+              <figure>
+                <Photo
+                  name="interior-covers"
+                  alt="Салон автомобиля в защитных чехлах на сиденьях и руле во время ремонта"
+                  sizes="(min-width: 1024px) 27vw, 50vw"
+                  className="aspect-[4/3]"
+                />
+                <figcaption className="eyebrow mt-3 text-dim">Салон — в защитных чехлах</figcaption>
+              </figure>
+              <figure>
+                <Photo
+                  name="entrance"
+                  alt="Въезд на охраняемую территорию сервиса через шлагбаум, рядом автомойка"
+                  sizes="(min-width: 1024px) 27vw, 50vw"
+                  className="aspect-[4/3]"
+                />
+                <figcaption className="eyebrow mt-3 text-dim">Въезд через шлагбаум</figcaption>
+              </figure>
             </div>
-            <p className="eyebrow mt-4 max-w-[40%] text-dim lg:mt-5">Цех · ул. Каховка, 30</p>
           </div>
 
           <div className="lg:col-span-5">

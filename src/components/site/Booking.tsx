@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { BookingForm } from "@/components/site/BookingForm"
 import { business } from "@/data/business"
 
-type BookingApi = { openBooking: (service?: string) => void }
+type BookingApi = { openBooking: (service?: string, comment?: string) => void }
 
 const BookingContext = createContext<BookingApi | null>(null)
 
@@ -15,14 +15,16 @@ export function useBooking() {
 }
 
 // Один диалог записи на весь сайт. Любая кнопка «Записаться» открывает его,
-// при желании — сразу с выбранной услугой. key пересоздаёт форму при каждом открытии.
+// при желании — сразу с выбранной услугой и комментарием (например, «к мастеру …»). key пересоздаёт форму при каждом открытии.
 export function BookingProvider({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false)
   const [service, setService] = useState("")
+  const [comment, setComment] = useState("")
   const [session, setSession] = useState(0)
 
-  const openBooking = useCallback((s = "") => {
+  const openBooking = useCallback((s = "", c = "") => {
     setService(s)
+    setComment(c)
     setSession((n) => n + 1)
     setOpen(true)
   }, [])
@@ -41,7 +43,7 @@ export function BookingProvider({ children }: { children: ReactNode }) {
               Оставьте номер — мастер-приёмщик перезвонит, уточнит задачу и подберёт удобное время.
             </DialogDescription>
           </DialogHeader>
-          <BookingForm key={session} defaultService={service} onDone={() => setOpen(false)} />
+          <BookingForm key={session} defaultService={service} defaultComment={comment} onDone={() => setOpen(false)} />
         </DialogContent>
       </Dialog>
     </BookingContext.Provider>

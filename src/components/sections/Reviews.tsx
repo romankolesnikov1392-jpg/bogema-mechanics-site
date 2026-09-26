@@ -7,6 +7,8 @@ import { SectionHeader } from "@/components/site/SectionHeader"
 import { business } from "@/data/business"
 import { reviews } from "@/data/content"
 
+const num = new Intl.NumberFormat("ru-RU")
+
 export function Reviews() {
   const [api, setApi] = useState<CarouselApi>()
   const [selected, setSelected] = useState(0)
@@ -36,12 +38,24 @@ export function Reviews() {
             <p className="display tabular text-[clamp(7rem,14vw,11rem)] leading-[0.78]">
               {business.rating}
             </p>
-            <div className="mt-5 flex gap-1 text-spark" role="img" aria-label="5 звёзд из 5">
-              {Array.from({ length: 5 }, (_, i) => (
-                <Star key={i} fill="currentColor" strokeWidth={0} className="size-6" />
-              ))}
+            {/* Звёзды по реальному рейтингу: пятая заполнена на 90% при 4,9. */}
+            <div className="mt-5 flex gap-1" role="img" aria-label={`Рейтинг ${business.rating} из 5`}>
+              {Array.from({ length: 5 }, (_, i) => {
+                const fill = Math.min(1, Math.max(0, business.ratingValue - i))
+                return (
+                  <span key={i} className="relative size-6">
+                    <Star fill="currentColor" strokeWidth={0} className="absolute inset-0 size-6 text-line-strong" />
+                    <span className="absolute inset-y-0 left-0 overflow-hidden" style={{ width: `${fill * 100}%` }}>
+                      <Star fill="currentColor" strokeWidth={0} className="size-6 text-spark" />
+                    </span>
+                  </span>
+                )
+              })}
             </div>
-            <p className="mt-4 max-w-xs text-muted-foreground">Рейтинг по отзывам клиентов — ниже подтверждённые отзывы с Zoon.</p>
+            <p className="mt-4 max-w-xs text-muted-foreground">
+              Средняя оценка на Zoon: {num.format(business.ratingCount)} оценок и {num.format(business.reviewsCount)} отзывов. Ниже —
+              подтверждённые отзывы.
+            </p>
             <a
               href={business.links.zoonReviews}
               target="_blank"
